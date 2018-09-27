@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 class Filter extends Component {
     handleClicks(location) {
         const {infowindow, map, contents, markers} = this.props;
-        // filter the markers that match the specific location name then onClick show info window
+        // markers for the specific location names 
         markers.filter(marker => marker.title === location.name).forEach(marker => {
             infowindow.setContent(String(contents.filter(content => String(content).slice(5).includes(location.name))));
             infowindow.open(map, marker);
-            // set bounce animation for the marker that is clicked
+            // animation for marker when it is clicked
             marker.setAnimation(window.google.maps.Animation.BOUNCE)
             setTimeout(function() {
                 marker.setAnimation(null)
