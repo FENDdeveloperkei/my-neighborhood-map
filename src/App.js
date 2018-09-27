@@ -15,12 +15,12 @@ class App extends Component {
 
     static defaultProps = {
         locations: [
-            {name: 'The Pfield Stadium', loc: {lat: 30.4456494, lng: -97.6326804}, address: '1440 W. Pecan St, Pflugerville, TX 78660', phone: '512-594-0000', mascot: 'Pfield', wiki: 'https://en.wikipedia.org/wiki/Pflugerville_High_School'},
-            {name: 'Connally High School', loc: {lat: 30.4192234, lng: -97.6762375}, address: '13212 N Lamar Blvd, Austin, TX 78753', phone: '512-594-0800', mascot: 'Cougars', wiki: 'https://en.wikipedia.org/wiki/John_B._Connally_High_School'},
-            {name: 'Pflugerville High School',loc: {lat: 30.4448663, lng: -97.6337909}, address: '1301 W Pecan St, Pflugerville, TX 78660', phone: '512-594-0500', mascot: 'Panthers', wiki: 'https://en.wikipedia.org/wiki/Pflugerville_High_School'},
-            {name: 'Hendrickson High School',loc: {lat: 30.4656629, lng: -97.5878583}, address: '19201 Colorado Sand Dr, Pflugerville, TX 78660', phone: '512-594-1100', mascot: 'Hawks', wiki: 'https://en.wikipedia.org/wiki/Hendrickson_High_School'},
-            {name: 'Weiss High School',loc: {lat: 30.4291442, lng: -97.56574520000001}, address: '5201 Wolf Pack Dr, Pflugerville, TX 78660', phone: '512-594-1400', mascot: 'Wolves', wiki: 'https://en.wikipedia.org/wiki/Pflugerville_Independent_School_District'},
-            {name: 'Pflugerville Academic Center of Excellence',loc: {lat: 30.446406, lng: -97.63657909999999}, address: '1401-B W Pecan St, Pflugerville, TX 78660', phone: '512-594-1900', mascot: 'PACE', wiki: 'https://en.wikipedia.org/wiki/Pflugerville_Independent_School_District'}
+            {name: 'Bath & Body Works', loc: {lat: 36.2028105, lng: -86.69238539999998}, address: '448 Opry Mills Dr, Nashville, TN 37214', site: 'http://www.bathandbodyworks.com/'},
+            {name: '50 East Shoes', loc: {lat: 36.20366, lng: -86.69239}, address: '509 Opry Mills Dr, Nashville, TN 37214', site: 'http://www.50eastshoes.com/'},
+            {name: 'Opry Mills Mall', loc: {lat: 36.202971, lng: -86.692699}, address: '433 Opry Mills Dr, Nashville, TN 37214', site: 'https://www.simon.com/mall/opry-mills'},
+            {name: 'VF Outlet', loc: {lat: 36.20366, lng: -86.69239}, address: '539 Opry Mills Dr, Nashville, TN 37214', site: 'http://vfoutlet.com/opry-mills?utm_source=google_plus&utm_medium=organic&utm_content=nashville_tn&utm_campaign=local'},
+            {name: 'Zales Outlet', loc: {lat: 36.20366, lng: -86.69239}, address: '228 Opry Mills Dr, Nashville, TN 37214', site: 'https://www.zalesoutlet.com/'},
+            {name: 'Solitaire the Diamond Store', loc: {lat: 36.20365849999999, lng: -86.69482479999999}, address: '158 Opry Mills Dr, Nashville, TN 37214, USA', site: 'http://www.mywatchstock.com/Category/watches/1/2909'}
         ]
     };
 
@@ -54,7 +54,7 @@ class App extends Component {
         const markers = [];
         const contents = [];
         const map = new window.google.maps.Map(document.getElementById('map'), {
-            center: {lat: 30.44837, lng: -97.6423},
+            center: {lat: 36.2031513, lng: 86.69282279999999},
             zoom: 13,
             mapTypeId: 'roadmap',
             mapTypeControl: false,
@@ -67,10 +67,8 @@ class App extends Component {
                 <div class="info-content">
                     <h2>${location.name}</h2>
                 </div>
-                <p>Mascot: ${location.mascot}</p>
                 <p>Address: <a href="https://maps.google.com/?q=${location.address}">${location.address}</a></p>
-                <p>Phone: <a href="tel:${location.phone}">${location.phone}</a></p>
-                <p><a href=${location.wiki}>Check out the ${location.mascot} on Wikipedia</a></p>
+                <p><a href=${location.wiki}>Check out the ${location.site} on the Web</a></p>
             `;
             // create a marker for each location
             const marker = new window.google.maps.Marker({
@@ -108,7 +106,7 @@ class App extends Component {
             <main className="app-container">
                 <header className="header">
                     <input type="text" placeholder="Filter items" className="search" onChange={event => this.handleFilter(event.target.value)} value={query} aria-label="Filter search input" tabIndex={1} />
-                    <h1 className="title">Map of Pflugerville, TX</h1>
+                    <h1 className="title">Map of Nashville, TN near Opry Mills Mall</h1>
                 </header>
                 <Filter query={query} locations={locations} map={map} markers={markers} contents={contents} infowindow={infowindow} filtered={filtered} hideMarkers={hideMarkers} />
                 <div id="map" role="application" aria-label="map"></div>
