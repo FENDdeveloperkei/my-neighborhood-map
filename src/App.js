@@ -44,7 +44,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const apiKey = 'AIzaSyBuOtZ4Xw9Wo4EK96HJ5Xmrs4Rz9sv5P1c';
+        const apiKey = 'AIzaSyBHc3m3XxUQIwvpgvJLji1E2-_Dob7uvGI';
         loadScript(`https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`);
         window.initMap = this.initMap.bind(this);
     }
@@ -68,7 +68,7 @@ class App extends Component {
                     <h2>${location.name}</h2>
                 </div>
                 <p>Address: <a href="https://maps.google.com/?q=${location.address}">${location.address}</a></p>
-                <p><a href=${location.wiki}>Check out the ${location.site} on the Web</a></p>
+                <p><a href=${location.site}>Check out the ${location.site} on the Web</a></p>
             `;
             // create a marker for each location
             const marker = new window.google.maps.Marker({
