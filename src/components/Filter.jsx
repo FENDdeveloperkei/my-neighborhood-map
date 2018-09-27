@@ -18,7 +18,7 @@ class Filter extends Component {
     render() {
         const {locations, query} = this.props;
         return (
-            <div className="content" aria-label="List of High Schools in Pflugerville">
+            <div className="content" aria-label="Everything Near Opry Mills Mall in Nashville, TN">
                 <ul>
                     {locations
                         .filter(location => location.name.toLowerCase().includes(query.toLowerCase()))
