@@ -54,7 +54,7 @@ class App extends Component {
         const markers = [];
         const contents = [];
         const map = new window.google.maps.Map(document.getElementById('map'), {
-            center: {lat: 36.2031513, lng: 86.69282279999999},
+            center: {lat: 36.2031513, lng: -86.69282279999999},
             zoom: 13,
             mapTypeId: 'roadmap',
             mapTypeControl: false,
@@ -106,7 +106,7 @@ class App extends Component {
             <main className="app-container">
                 <header className="header">
                     <input type="text" placeholder="Filter items" className="search" onChange={event => this.handleFilter(event.target.value)} value={query} aria-label="Filter search input" tabIndex={1} />
-                    <h1 className="title">Map of Nashville, TN near Opry Mills Mall</h1>
+                    <h1 className="title">Nashville, TN near Opry Mills Mall Map</h1>
                 </header>
                 <Filter query={query} locations={locations} map={map} markers={markers} contents={contents} infowindow={infowindow} filtered={filtered} hideMarkers={hideMarkers} />
                 <div id="map" role="application" aria-label="map"></div>
